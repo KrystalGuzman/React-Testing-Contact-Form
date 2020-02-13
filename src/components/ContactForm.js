@@ -16,9 +16,12 @@ const ContactForm = () => {
         <div>
           <label htmlFor="firstName">First Name*</label>
           <input
+            id="firstName"
             name="firstName"
-            placeholder="bill"
-            ref={register({ required: true, maxLength: 3 })}
+            // placeholder="bill"
+            ref={register({ required: true
+              // , maxLength: 3 
+            })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -28,8 +31,9 @@ const ContactForm = () => {
         <div>
           <label htmlFor="lastName">Last Name*</label>
           <input
+          id ="lastName"
             name="lastName"
-            placeholder="luo"
+            // placeholder="luo"
             ref={register({ required: true })}
           />
           {errors.lastName && (
@@ -38,24 +42,32 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
+          <label htmlFor="email" 
+          // placeholder="bluebill1049@hotmail.com"
+          >
             Email*
           </label>
-          <input name="email" ref={register({ required: true })} />
+          <input 
+          id="email"
+          name="email" ref={register({ required: true })} />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>
           <label htmlFor="message">Message</label>
-          <textarea name="message" ref={register({ required: false })} />
+          <textarea 
+          id="message"
+          name="message" ref={register({ required: false })} />
         </div>
         {data && (
-          <pre style={{ textAlign: "left", color: "white" }}>
+          <pre data-testid="submit"
+          style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <input data-testid="submitted" type="submit" />
+        
       </form>
     </div>
   );
